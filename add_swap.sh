@@ -2,7 +2,7 @@
 
 swapoff -a
 echo "It takes a few minutes, be patient!!"
-dd if=/dev/zero of=/mnt/swap bs=1024 count=2G
+dd if=/dev/zero of=/mnt/swap bs=1024 count=4M
 chmod 0600 /mnt/swap
 mkswap /mnt/swap
 swapon /mnt/swap
