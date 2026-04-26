@@ -7,4 +7,4 @@ chmod 0600 /mnt/swap
 mkswap /mnt/swap
 swapon /mnt/swap
 grep -qF swap /etc/fstab || echo "/mnt/swap       swap    swap    default 0       0" >> /etc/fstab 
-sed -i 's/vm.swappiness.*/vm.swappiness = 20/' /etc/sysctl.conf
+grep -qF "^vm.swappiness" /etc/sysctl.conf && sed -i 's/^vm.swappiness.*/vm.swappiness = 20/' /etc/sysctl.conf || echo "vm.swappiness = 20" >> /etc/sysctl.conf
